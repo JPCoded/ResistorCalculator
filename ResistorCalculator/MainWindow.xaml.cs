@@ -20,9 +20,36 @@ namespace ResistorCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        enum Color 
+        {
+         Black,
+         Red,
+         Orange,
+         Yellow,
+         Green,
+         Blue,
+         Violet,
+         Grey,
+         White,
+         Gold,
+         Silver   
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+       
+        }
+
+        private void BtnSub1_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            RB1.PreviousColor();
+        }
+
+
+        private void BtnAdd1_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+           RB1.NextColor();
         }
     }
 }
