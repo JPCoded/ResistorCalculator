@@ -18,24 +18,28 @@ namespace ResistorCalculator
             "AllowTolerance", typeof (bool), typeof (ResistorBand));
 
         private int _currentMultiplier;
-        private readonly Dictionary<int, SolidColorBrush> _rbColors = new Dictionary<int, SolidColorBrush>();
-        private readonly List<double> _rbMulipliers = new List<Double>(new double[] {1,10,100,100,10000,100000,1000000,10000000,1,1,0.1,0.01});
-        
+        private int _currentTolerance;
+
+        private readonly List<SolidColorBrush> _rbColors =
+            new List<SolidColorBrush>(new[]
+            {
+                Brushes.Black, Brushes.Brown, Brushes.Red, Brushes.Orange, Brushes.Yellow
+                , Brushes.Green, Brushes.Blue, Brushes.Purple, Brushes.Gray, Brushes.White, Brushes.Gold, Brushes.Silver
+            });
+        private readonly List<SolidColorBrush> _rbToleranceColors =
+    new List<SolidColorBrush>(new[]
+    {
+                Brushes.Brown, Brushes.Red,Brushes.Green, Brushes.Blue, Brushes.Purple, Brushes.Gray, Brushes.Gold, Brushes.Silver
+    });
+
+        private readonly List<double> _rbMulipliers =
+            new List<Double>(new[] {1, 10, 100, 100, 10000, 100000, 1000000, 10000000, 1, 1, 0.1, 0.01});
+
+        private readonly List<double> _rbTolerance = new List<double>();
         public ResistorBand()
         {
             InitializeComponent();
-            _rbColors.Add(0, Brushes.Black);
-            _rbColors.Add(1, Brushes.Brown);
-            _rbColors.Add(2, Brushes.Red);
-            _rbColors.Add(3, Brushes.Orange);
-            _rbColors.Add(4, Brushes.Yellow);
-            _rbColors.Add(5, Brushes.Green);
-            _rbColors.Add(6, Brushes.Blue);
-            _rbColors.Add(7, Brushes.Purple);
-            _rbColors.Add(8, Brushes.Gray);
-            _rbColors.Add(9, Brushes.White);
-            _rbColors.Add(10, Brushes.Gold);
-            _rbColors.Add(11, Brushes.Silver);
+
             ResistorBands.Fill = Brushes.Black;
         }
 
@@ -58,12 +62,16 @@ namespace ResistorCalculator
 
         public void PreviousColor()
         {
-            if (_currentMultiplier > 0)
+            if (_currentMultiplier > 0 && !AllowTolerance)
             {
                 ResistorBands.Fill = _rbColors[_currentMultiplier - 1];
                 _currentMultiplier -= 1;
             }
-
+            else if (_currentTolerance > 0 && AllowTolerance)
+            {
+                ResistorBands.Fill = _rbToleranceColors[_currentTolerance - 1];
+                _currentTolerance -= 1;
+            }
             else if (IsRbVisible() && AllowInvis)
             {
                 ResistorBands.Visibility = Visibility.Hidden;
@@ -72,15 +80,15 @@ namespace ResistorCalculator
 
         public void NextColor()
         {
-            if (_currentMultiplier < 9 && IsRbVisible())
+            if (_currentMultiplier < 9 && IsRbVisible() && !AllowTolerance)
             {
                 ResistorBands.Fill = _rbColors[_currentMultiplier + 1];
                 _currentMultiplier += 1;
             }
-            else if (AllowTolerance && _currentMultiplier < 11)
+            else if (AllowTolerance && _currentTolerance < 7)
             {
-                ResistorBands.Fill = _rbColors[_currentMultiplier + 1];
-                _currentMultiplier += 1;
+                ResistorBands.Fill = _rbToleranceColors[_currentTolerance + 1];
+                _currentTolerance += 1;
             }
             else if (IsRbVisible() == false)
             {
