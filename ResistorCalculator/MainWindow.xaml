@@ -58,7 +58,7 @@
         <local:ResistorBand x:Name="RbTolerance" HorizontalAlignment="Left" Margin="381,62,0,0" VerticalAlignment="Top" AllowInvis="False" AllowTolerance="True"/>
         <local:TriangleButton x:Name="TbPrev1" HorizontalAlignment="Left" Margin="180,169,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev1_MouseLeftButtonUp"  />
         <local:TriangleButton x:Name="TbPrev5" HorizontalAlignment="Left" Margin="381,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev5_MouseLeftButtonUp"/>
-        <local:TriangleButton x:Name="TbNext5" HorizontalAlignment="Left" Margin="381,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext5_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext5" HorizontalAlignment="Left" Margin="381,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext5_MouseLeftButtonUp">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -68,7 +68,7 @@
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbNext4" HorizontalAlignment="Left" Margin="301,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext4_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext4" HorizontalAlignment="Left" Margin="300,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext4_MouseLeftButtonUp">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -78,7 +78,7 @@
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbNext3" HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext3_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext3" HorizontalAlignment="Left" Margin="260,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext3_MouseLeftButtonUp">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -88,7 +88,7 @@
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbNext2" HorizontalAlignment="Left" Margin="220,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext2_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext2" HorizontalAlignment="Left" Margin="220,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext2_MouseLeftButtonUp">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -98,7 +98,7 @@
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbNext1" HorizontalAlignment="Left" Margin="180,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext1_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext1" HorizontalAlignment="Left" Margin="180,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext1_MouseLeftButtonUp">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -108,7 +108,7 @@
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbPrev4" HorizontalAlignment="Left" Margin="301,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev4_MouseLeftButtonUp"/>
+        <local:TriangleButton x:Name="TbPrev4" HorizontalAlignment="Left" Margin="300,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev4_MouseLeftButtonUp"/>
         <local:TriangleButton x:Name="TbPrev3" HorizontalAlignment="Left" Margin="260,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev3_MouseLeftButtonUp"/>
         <local:TriangleButton x:Name="TbPrev2" HorizontalAlignment="Left" Margin="220,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev2_MouseLeftButtonUp"/>
     </Grid>

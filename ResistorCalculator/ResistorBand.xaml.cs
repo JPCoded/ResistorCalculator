@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -18,7 +19,8 @@ namespace ResistorCalculator
 
         private int _currentMultiplier;
         private readonly Dictionary<int, SolidColorBrush> _rbColors = new Dictionary<int, SolidColorBrush>();
-
+        private readonly List<double> _rbMulipliers = new List<Double>(new double[] {1,10,100,100,10000,100000,1000000,10000000,1,1,0.1,0.01});
+        
         public ResistorBand()
         {
             InitializeComponent();
@@ -88,9 +90,9 @@ namespace ResistorCalculator
             }
         }
 
-        public int GetMultiplier()
+        public double GetMultiplier()
         {
-            return _currentMultiplier;
+            return _rbMulipliers[_currentMultiplier];
         }
     }
 }
