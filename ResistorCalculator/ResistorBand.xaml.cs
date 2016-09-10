@@ -26,16 +26,19 @@ namespace ResistorCalculator
                 Brushes.Black, Brushes.Brown, Brushes.Red, Brushes.Orange, Brushes.Yellow
                 , Brushes.Green, Brushes.Blue, Brushes.Purple, Brushes.Gray, Brushes.White, Brushes.Gold, Brushes.Silver
             });
-        private readonly List<SolidColorBrush> _rbToleranceColors =
-    new List<SolidColorBrush>(new[]
-    {
-                Brushes.Brown, Brushes.Red,Brushes.Green, Brushes.Blue, Brushes.Purple, Brushes.Gray, Brushes.Gold, Brushes.Silver
-    });
 
         private readonly List<double> _rbMulipliers =
             new List<Double>(new[] {1, 10, 100, 100, 10000, 100000, 1000000, 10000000, 1, 1, 0.1, 0.01});
 
         private readonly List<double> _rbTolerance = new List<double>();
+
+        private readonly List<SolidColorBrush> _rbToleranceColors =
+            new List<SolidColorBrush>(new[]
+            {
+                Brushes.Brown, Brushes.Red, Brushes.Green, Brushes.Blue, Brushes.Purple, Brushes.Gray, Brushes.Gold,
+                Brushes.Silver
+            });
+
         public ResistorBand()
         {
             InitializeComponent();
