@@ -33,7 +33,7 @@
                 </LinearGradientBrush>
             </Polygon.Fill>
         </Polygon>
-        <local:ResistorBand x:Name="RB1" HorizontalAlignment="Left" Margin="180,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
+        <local:ResistorBand x:Name="Rb1" HorizontalAlignment="Left" Margin="180,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
         <Rectangle HorizontalAlignment="Center" Height="15" Margin="479,107,65,265" StrokeThickness="0" VerticalAlignment="Center" Width="100">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -52,9 +52,9 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <local:ResistorBand x:Name="RB2" HorizontalAlignment="Left" Margin="220,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
-        <local:ResistorBand x:Name="RB3" HorizontalAlignment="Left" Margin="260,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
-        <local:ResistorBand x:Name="RB4" HorizontalAlignment="Left" Margin="300,62,0,0" VerticalAlignment="Top" AllowInvis="True"/>
+        <local:ResistorBand x:Name="Rb2" HorizontalAlignment="Left" Margin="220,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
+        <local:ResistorBand x:Name="Rb3" HorizontalAlignment="Left" Margin="260,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
+        <local:ResistorBand x:Name="Rb4" HorizontalAlignment="Left" Margin="300,62,0,0" VerticalAlignment="Top" AllowInvis="True"/>
         <local:ResistorBand x:Name="RbTolerance" HorizontalAlignment="Left" Margin="381,62,0,0" VerticalAlignment="Top" AllowInvis="False" AllowTolerance="True"/>
         <local:TriangleButton x:Name="TbPrev1" HorizontalAlignment="Left" Margin="180,169,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev1_MouseLeftButtonUp"  />
         <local:TriangleButton x:Name="TbPrev5" HorizontalAlignment="Left" Margin="381,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev5_MouseLeftButtonUp"/>

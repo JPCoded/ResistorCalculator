@@ -20,20 +20,6 @@ namespace ResistorCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        enum Color 
-        {
-         Black,
-         Red,
-         Orange,
-         Yellow,
-         Green,
-         Blue,
-         Violet,
-         Grey,
-         White,
-         Gold,
-         Silver   
-        }
 
         public MainWindow()
         {
@@ -43,7 +29,7 @@ namespace ResistorCalculator
 
         private void TbPrev1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RB1.PreviousColor();
+            Rb1.PreviousColor();
         }
 
         private void TbNext5_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -58,37 +44,37 @@ namespace ResistorCalculator
 
         private void TbPrev2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RB2.PreviousColor();
+            Rb2.PreviousColor();
         }
 
         private void TbPrev3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RB3.PreviousColor();
+            Rb3.PreviousColor();
         }
 
         private void TbPrev4_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RB4.PreviousColor();
+            Rb4.PreviousColor();
         }
 
         private void TbNext1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RB1.NextColor();
+            Rb1.NextColor();
         }
 
         private void TbNext2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RB2.NextColor();
+            Rb2.NextColor();
         }
 
         private void TbNext3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RB3.NextColor();
+            Rb3.NextColor();
         }
 
         private void TbNext4_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RB4.NextColor();
+            Rb4.NextColor();
         }
     }
 }
