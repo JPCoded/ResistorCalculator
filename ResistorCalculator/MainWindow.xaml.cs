@@ -41,15 +41,19 @@ namespace ResistorCalculator
        
         }
 
-        private void BtnSub1_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void TbPrev1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             RB1.PreviousColor();
         }
 
-
-        private void BtnAdd1_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void TbNext5_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-           RB1.NextColor();
+            RbTolerance.NextColor();
+        }
+
+        private void TbPrev5_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            RbTolerance.PreviousColor();
         }
     }
 }

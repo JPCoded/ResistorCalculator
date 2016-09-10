@@ -4,20 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Polygon
-            Points="0,0 30,15 0,30"
-            Stroke="Black" 
-            StrokeThickness="2"  RenderTransformOrigin="0.5,0.5" Margin="-98,0,362,265" Height="34" VerticalAlignment="Bottom" Fill="#FF851B1B">
-            <Polygon.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="89.962"/>
-                    <TranslateTransform X="91" Y="-0.03"/>
-                </TransformGroup>
-            </Polygon.RenderTransform>
-        </Polygon>
+             d:DesignHeight="39" d:DesignWidth="30" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Height="35">
+    <Grid Height="35"> 
+        <Polygon Points="0,0 20,0 10,15" Stroke="Red" StrokeThickness=".5" Fill="Black" />
+        <Polygon Points="0,0 10,35 10,15" Stroke="Red" StrokeThickness=".5" Fill="Black" />
+        <Polygon Points="20,0 10,35 10,15" Stroke="Red" StrokeThickness=".5" Fill="Black" />
     </Grid>
 </UserControl>

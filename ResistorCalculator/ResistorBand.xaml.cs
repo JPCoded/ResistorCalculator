@@ -14,10 +14,9 @@ namespace ResistorCalculator
             "AllowInvis", typeof (bool), typeof (ResistorBand));
 
         public static readonly DependencyProperty IsTolerance = DependencyProperty.Register(
-            "ToleranceBand", typeof (bool), typeof (ResistorBand));
+            "AllowTolerance", typeof (bool), typeof (ResistorBand));
 
         private int _currentMultiplier;
-        private int _currentTolerance = 10;
         private readonly Dictionary<int, SolidColorBrush> _rbColors = new Dictionary<int, SolidColorBrush>();
 
         public ResistorBand()
@@ -35,7 +34,7 @@ namespace ResistorCalculator
             _rbColors.Add(9, Brushes.White);
             _rbColors.Add(10, Brushes.Gold);
             _rbColors.Add(11, Brushes.Silver);
-            ResistorBands.Fill = ToleranceBand ? Brushes.Gold : Brushes.Black;
+            ResistorBands.Fill = Brushes.Black;
         }
 
         public bool AllowInvis
@@ -44,7 +43,7 @@ namespace ResistorCalculator
             set { SetValue(AllowInvisibility, value); }
         }
 
-        public bool ToleranceBand
+        public bool AllowTolerance
         {
             get { return (bool) GetValue(IsTolerance); }
             set { SetValue(IsTolerance, value); }
@@ -57,15 +56,12 @@ namespace ResistorCalculator
 
         public void PreviousColor()
         {
-            if (_currentMultiplier > 0 && !ToleranceBand)
+            if (_currentMultiplier > 0)
             {
                 ResistorBands.Fill = _rbColors[_currentMultiplier - 1];
                 _currentMultiplier -= 1;
             }
-            else if (ToleranceBand && _currentTolerance == 11)
-            {
-                ResistorBands.Fill = _rbColors[10];
-            }
+
             else if (IsRbVisible() && AllowInvis)
             {
                 ResistorBands.Visibility = Visibility.Hidden;
@@ -74,15 +70,15 @@ namespace ResistorCalculator
 
         public void NextColor()
         {
-            if (_currentMultiplier < 9 && IsRbVisible() && !ToleranceBand)
+            if (_currentMultiplier < 9 && IsRbVisible())
             {
                 ResistorBands.Fill = _rbColors[_currentMultiplier + 1];
                 _currentMultiplier += 1;
             }
-            else if (ToleranceBand && _currentTolerance == 10)
+            else if (AllowTolerance && _currentMultiplier < 11)
             {
-                ResistorBands.Fill = _rbColors[11];
-                _currentTolerance = 11;
+                ResistorBands.Fill = _rbColors[_currentMultiplier + 1];
+                _currentMultiplier += 1;
             }
             else if (IsRbVisible() == false)
             {
