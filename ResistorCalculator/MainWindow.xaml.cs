@@ -76,7 +76,7 @@ namespace ResistorCalculator
 
         private void UpdateValue()
         {
-            var currentValue = Rb1.GetValue() + Rb2.GetValue().ToString();
+  
             if (Rb4.GetMultiplier() == -1 || Rb3.GetMultiplier() == -1)
 
             {
@@ -84,16 +84,12 @@ namespace ResistorCalculator
             }
             else
             {
-                if (Rb4.IsRbVisible())
-                {
-                    currentValue += Rb3.GetValue();
-                    currentValue = (Convert.ToInt32(currentValue)*Rb4.GetMultiplier()).ToString();
-                }
-                else
-                {
-                    currentValue = (Convert.ToInt32(currentValue)*(Math.Pow(10, Rb3.GetValue()))).ToString();
-                }
-                lblValue.Content = currentValue + "\u2126  " + RbTolerance.GetTolerance() + " %";
+                var multiplier = Rb4.IsRbVisible() ? Rb4.GetMultiplier() : Rb3.GetMultiplier();
+                var currentValue = Rb1.GetValue() + Rb2.GetValue().ToString() + (Rb4.IsRbVisible() ? Rb3.GetValue().ToString() : "");
+                currentValue = (Convert.ToInt32(currentValue)*multiplier).ToString("N0");
+                lblValue.Content = currentValue + "\u2126  " + RbTolerance.GetTolerance() + "%";
+
+              
             }
         }
     }

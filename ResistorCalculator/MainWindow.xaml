@@ -198,5 +198,13 @@
                BorderBrush="Black"
                BorderThickness="1"
                Content="" />
+        <Label x:Name="lblValueShort"
+               Width="288"
+               Margin="111,268,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               BorderBrush="Black"
+               BorderThickness="1"
+               Content="" />
     </Grid>
 </Window>
