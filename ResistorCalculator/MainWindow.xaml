@@ -1,115 +1,189 @@
-﻿<Window
+﻿<Window x:Class="ResistorCalculator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:ResistorCalculator"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ResistorCalculator" x:Class="ResistorCalculator.MainWindow"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="418.436" Width="652.095">
+        Title="MainWindow"
+        Width="652.095"
+        Height="418.436"
+        mc:Ignorable="d">
     <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-        <Polygon 
-        Points="0,15  15,0  
-                115,0  130,15  
-                130,60  115,75  
-                115,300  130,315  
-                130,360 115,375 
-                15,375 0,360 
-                0,315 15,300 
-                15,75 0,60 0,0" 
-            StrokeThickness="0"  RenderTransformOrigin="0,0" Margin="104,177,410,-165" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Polygon Margin="104,177,0,-169"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Points="0,15 15,0 115,0 130,15 130,60 115,75 115,300 130,315 130,360 115,375 15,375 0,360 0,315 15,300 15,75 0,60 0,0"
+                 RenderTransformOrigin="0,0"
+                 StrokeThickness="0">
             <Polygon.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-90" />
+                    <TranslateTransform />
                 </TransformGroup>
             </Polygon.RenderTransform>
             <Polygon.Fill>
-                <LinearGradientBrush EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
-                    <GradientStop Color="#FFFFBE4C" Offset="1"/>
-                    <GradientStop Color="#FFFFDDA2" Offset="0.5"/>
-                    <GradientStop Color="#FFFFBE4C" Offset="0.01"/>
+                <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0,1" EndPoint="1,1">
+                    <GradientStop Offset="1" Color="#FFFFBE4C" />
+                    <GradientStop Offset="0.5" Color="#FFFFDDA2" />
+                    <GradientStop Offset="0.01" Color="#FFFFBE4C" />
                 </LinearGradientBrush>
             </Polygon.Fill>
         </Polygon>
-        <local:ResistorBand x:Name="Rb1" HorizontalAlignment="Left" Margin="180,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
-        <Rectangle HorizontalAlignment="Center" Height="15" Margin="479,107,65,265" StrokeThickness="0" VerticalAlignment="Center" Width="100">
+        <local:ResistorBand x:Name="Rb1"
+                            Margin="183,62,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            AllowInvis="False" />
+        <Rectangle Width="100"
+                   Height="15"
+                   Margin="479,107,65,265"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   StrokeThickness="0">
             <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF7E7E7E" Offset="0"/>
-                    <GradientStop Color="#FF7E7E7E" Offset="0.997"/>
-                    <GradientStop Color="White" Offset="0.495"/>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FF7E7E7E" />
+                    <GradientStop Offset="0.997" Color="#FF7E7E7E" />
+                    <GradientStop Offset="0.495" Color="White" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Center" Height="15" Margin="4,107,540,265" StrokeThickness="0" VerticalAlignment="Center" Width="100">
+        <Rectangle Width="100"
+                   Height="15"
+                   Margin="4,107,540,265"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   StrokeThickness="0">
             <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF7E7E7E" Offset="0"/>
-                    <GradientStop Color="#FF7E7E7E" Offset="0.997"/>
-                    <GradientStop Color="White" Offset="0.495"/>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FF7E7E7E" />
+                    <GradientStop Offset="0.997" Color="#FF7E7E7E" />
+                    <GradientStop Offset="0.495" Color="White" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <local:ResistorBand x:Name="Rb2" HorizontalAlignment="Left" Margin="220,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
-        <local:ResistorBand x:Name="Rb3" HorizontalAlignment="Left" Margin="260,62,0,0" VerticalAlignment="Top" AllowInvis="False"/>
-        <local:ResistorBand x:Name="Rb4" HorizontalAlignment="Left" Margin="300,62,0,0" VerticalAlignment="Top" AllowInvis="True"/>
-        <local:ResistorBand x:Name="RbTolerance" HorizontalAlignment="Left" Margin="381,62,0,0" VerticalAlignment="Top" AllowInvis="False" AllowTolerance="True"/>
-        <local:TriangleButton x:Name="TbPrev1" HorizontalAlignment="Left" Margin="180,169,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev1_MouseLeftButtonUp"  />
-        <local:TriangleButton x:Name="TbPrev5" HorizontalAlignment="Left" Margin="381,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev5_MouseLeftButtonUp"/>
-        <local:TriangleButton x:Name="TbNext5" HorizontalAlignment="Left" Margin="381,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext5_MouseLeftButtonUp">
+        <local:ResistorBand x:Name="Rb2"
+                            Margin="223,62,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            AllowInvis="False" />
+        <local:ResistorBand x:Name="Rb3"
+                            Margin="263,62,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            AllowInvis="False" />
+        <local:ResistorBand x:Name="Rb4"
+                            Margin="303,62,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            AllowInvis="True" />
+        <local:ResistorBand x:Name="RbTolerance"
+                            Margin="378,62,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            AllowInvis="False"
+                            AllowTolerance="True" />
+        <local:TriangleButton x:Name="TbPrev1"
+                              Margin="183,169,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbPrev1_MouseLeftButtonUp" />
+        <local:TriangleButton x:Name="TbPrev5"
+                              Margin="378,168,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbPrev5_MouseLeftButtonUp" />
+        <local:TriangleButton x:Name="TbNext5"
+                              Margin="378,21,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbNext5_MouseLeftButtonUp"
+                              RenderTransformOrigin="0.5,0.5">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="180"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="180" />
+                    <TranslateTransform />
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbNext4" HorizontalAlignment="Left" Margin="300,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext4_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext4"
+                              Margin="303,21,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbNext4_MouseLeftButtonUp"
+                              RenderTransformOrigin="0.5,0.5">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="180"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="180" />
+                    <TranslateTransform />
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbNext3" HorizontalAlignment="Left" Margin="260,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext3_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext3"
+                              Margin="263,21,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbNext3_MouseLeftButtonUp"
+                              RenderTransformOrigin="0.5,0.5">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="180"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="180" />
+                    <TranslateTransform />
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbNext2" HorizontalAlignment="Left" Margin="220,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext2_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext2"
+                              Margin="223,21,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbNext2_MouseLeftButtonUp"
+                              RenderTransformOrigin="0.5,0.5">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="180"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="180" />
+                    <TranslateTransform />
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbNext1" HorizontalAlignment="Left" Margin="180,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseLeftButtonUp="TbNext1_MouseLeftButtonUp">
+        <local:TriangleButton x:Name="TbNext1"
+                              Margin="183,21,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbNext1_MouseLeftButtonUp"
+                              RenderTransformOrigin="0.5,0.5">
             <local:TriangleButton.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="180"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="180" />
+                    <TranslateTransform />
                 </TransformGroup>
             </local:TriangleButton.RenderTransform>
         </local:TriangleButton>
-        <local:TriangleButton x:Name="TbPrev4" HorizontalAlignment="Left" Margin="300,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev4_MouseLeftButtonUp"/>
-        <local:TriangleButton x:Name="TbPrev3" HorizontalAlignment="Left" Margin="260,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev3_MouseLeftButtonUp"/>
-        <local:TriangleButton x:Name="TbPrev2" HorizontalAlignment="Left" Margin="220,168,0,0" VerticalAlignment="Top" MouseLeftButtonUp="TbPrev2_MouseLeftButtonUp"/>
+        <local:TriangleButton x:Name="TbPrev4"
+                              Margin="303,168,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbPrev4_MouseLeftButtonUp" />
+        <local:TriangleButton x:Name="TbPrev3"
+                              Margin="263,168,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbPrev3_MouseLeftButtonUp" />
+        <local:TriangleButton x:Name="TbPrev2"
+                              Margin="223,168,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              MouseLeftButtonUp="TbPrev2_MouseLeftButtonUp" />
     </Grid>
 </Window>

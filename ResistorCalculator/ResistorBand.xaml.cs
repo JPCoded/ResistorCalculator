@@ -106,5 +106,10 @@ namespace ResistorCalculator
         {
             return _rbMulipliers[_currentMultiplier];
         }
+
+        public double GetTolerance()
+        {
+            return _rbTolerance[_currentTolerance];
+        }
     }
 }
