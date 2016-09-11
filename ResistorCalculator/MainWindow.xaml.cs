@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ResistorCalculator
@@ -75,13 +76,25 @@ namespace ResistorCalculator
 
         private void UpdateValue()
         {
-            var currentValue = Rb1.GetValue().ToString() + Rb2.GetValue().ToString();
-          
-            if (Rb4.IsRbVisible())
+            var currentValue = Rb1.GetValue() + Rb2.GetValue().ToString();
+            if (Rb4.GetMultiplier() == -1 || Rb3.GetMultiplier() == -1)
+
             {
-                currentValue += Rb3.GetValue();
+                lblValue.Content = "ERROR: INCORRECT VALUE";
             }
-             lblValue.Content = currentValue + "\u2126  " + RbTolerance.GetTolerance() + " %";
+            else
+            {
+                if (Rb4.IsRbVisible())
+                {
+                    currentValue += Rb3.GetValue();
+                    currentValue = (Convert.ToInt32(currentValue)*Rb4.GetMultiplier()).ToString();
+                }
+                else
+                {
+                    currentValue = (Convert.ToInt32(currentValue)*(Math.Pow(10, Rb3.GetValue()))).ToString();
+                }
+                lblValue.Content = currentValue + "\u2126  " + RbTolerance.GetTolerance() + " %";
+            }
         }
     }
 }
