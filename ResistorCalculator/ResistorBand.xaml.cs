@@ -28,10 +28,10 @@ namespace ResistorCalculator
             });
 
         private readonly List<double> _rbMulipliers =
-            new List<double>(new[] {1, 10, 100, 100, 10000, 100000, 1000000, 10000000, 1, 1, 0.1, 0.01});
+            new List<double>(new[] {1, 10, 100, 100, 10000, 100000, 1000000, 10000000, -1, -1, 0.1, 0.01});
 
         private readonly List<double> _rbTolerance =
-            new List<double>(new[] {0.01, 0.02, 0.005, 0.0025, 0.001, 0.0005, 0.05, 0.1});
+            new List<double>(new[] {1, 2, 0.5, 0.25, 0.1, 0.05, 5, 10});
 
         private readonly List<SolidColorBrush> _rbToleranceColors =
             new List<SolidColorBrush>(new[]
@@ -110,6 +110,11 @@ namespace ResistorCalculator
         public double GetTolerance()
         {
             return _rbTolerance[_currentTolerance];
+        }
+
+        public int GetValue()
+        {
+            return _currentMultiplier;
         }
     }
 }

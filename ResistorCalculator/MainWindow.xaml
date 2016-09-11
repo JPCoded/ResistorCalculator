@@ -185,5 +185,18 @@
                               HorizontalAlignment="Left"
                               VerticalAlignment="Top"
                               MouseLeftButtonUp="TbPrev2_MouseLeftButtonUp" />
+        <Label x:Name="label"
+               Margin="61,228,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Label" />
+        <Label x:Name="lblValue"
+               Width="288"
+               Margin="111,228,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               BorderBrush="Black"
+               BorderThickness="1"
+               Content="" />
     </Grid>
 </Window>
