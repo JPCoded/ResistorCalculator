@@ -45,17 +45,18 @@ namespace ResistorCalculator
             InitializeComponent();
 
             ResistorBands.Fill = Brushes.Black;
+            _currentMultiplier = 0;
         }
 
         public bool AllowInvis
         {
-            get { return (bool) GetValue(AllowInvisibility); }
+            private get { return (bool) GetValue(AllowInvisibility); }
             set { SetValue(AllowInvisibility, value); }
         }
 
         public bool AllowTolerance
         {
-            get { return (bool) GetValue(IsTolerance); }
+            private get { return (bool) GetValue(IsTolerance); }
             set { SetValue(IsTolerance, value); }
         }
 
