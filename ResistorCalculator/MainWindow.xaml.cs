@@ -93,7 +93,7 @@ namespace ResistorCalculator
                 }
                 else
                 {
-                    currentValue = (Rb1.GetValue()*10) + (Rb2.GetValue()*1);
+                    currentValue = (Rb1.GetValue()*10) + Rb2.GetValue();
                 }
 
                 currentValue *= multiplier;
