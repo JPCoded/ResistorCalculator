@@ -98,7 +98,10 @@ namespace ResistorCalculator
 
                 currentValue *= multiplier;
                 lblValue.Content = currentValue.ToString("N0") + "\u2126  " + RbTolerance.GetTolerance() + "%";
-
+                if (currentValue > 10000 && currentValue < 100000)
+                {
+                    lblValueShort.Content = (currentValue/10000).ToString();
+                }
               
             }
         }

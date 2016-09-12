@@ -20,6 +20,10 @@ namespace ResistorCalculator
         private int _currentMultiplier;
         private int _currentTolerance;
 
+        //4-band -- M - Black, Brown, Red, Orange, Yellow, Green, Blue, Gold, Silver -- T - Brown, Red, Gold, Silver
+        //5-band -- M -  Black, Brown, Red, Orange, Yellow, Gold, Silver -- T - Brown, Red, Gold, Silver
+
+
         private readonly List<SolidColorBrush> _rbColors =
             new List<SolidColorBrush>(new[]
             {
