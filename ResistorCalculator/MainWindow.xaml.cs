@@ -9,6 +9,7 @@ namespace ResistorCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string OHM = "\u2126";
         public MainWindow()
         {
             InitializeComponent();
@@ -82,6 +83,7 @@ namespace ResistorCalculator
 
             {
                 lblValue.Content = "ERROR: INCORRECT VALUE";
+                lblValueShort.Content = "ERROR: INCORRECT VALUE";
             }
             else
             {
@@ -95,14 +97,28 @@ namespace ResistorCalculator
                 {
                     currentValue = (Rb1.GetValue()*10) + Rb2.GetValue();
                 }
-
-                currentValue *= multiplier;
-                lblValue.Content = currentValue.ToString("N0") + "\u2126  " + RbTolerance.GetTolerance() + "%";
-                if (currentValue > 10000 && currentValue < 100000)
+                
+                var currentValueLong = currentValue * multiplier;
+       
+                lblValue.Content = currentValueLong.ToString("N0") + OHM + " " + RbTolerance.GetTolerance() + "%";
+                if (currentValueLong > 1e6)
                 {
-                    lblValueShort.Content = (currentValue/10000).ToString();
+                    currentValueLong /= 1e6;
+                    lblValueShort.Content = currentValueLong + "M " + OHM + " " + RbTolerance.GetTolerance() + "%";
                 }
-              
+                else
+                {
+                    if (currentValueLong > 1e3)
+                    {
+                        currentValueLong /= 1e3;
+                        lblValueShort.Content = currentValueLong + "K " + OHM + " " + RbTolerance.GetTolerance() + "%";
+                    }
+                    else
+                    {
+                        lblValueShort.Content = currentValueLong + OHM + " " + RbTolerance.GetTolerance() + "%";
+                    }
+                }
+
             }
         }
     }

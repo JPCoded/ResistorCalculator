@@ -186,10 +186,10 @@
                               VerticalAlignment="Top"
                               MouseLeftButtonUp="TbPrev2_MouseLeftButtonUp" />
         <Label x:Name="label"
-               Margin="61,228,0,0"
+               Margin="20,228,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
-               Content="VALUE:" />
+               Content="VALUE (LONG):" />
         <Label x:Name="lblValue"
                Width="288"
                Margin="111,228,0,0"
@@ -206,5 +206,10 @@
                BorderBrush="Black"
                BorderThickness="1"
                Content="" />
+        <Label x:Name="label_Copy"
+               Margin="17,269,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="VALUE (SHORT):" />
     </Grid>
 </Window>
