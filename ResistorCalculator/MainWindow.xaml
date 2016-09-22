@@ -37,30 +37,16 @@
                             VerticalAlignment="Top"
                             AllowInvis="False" />
         <Rectangle Width="100"
-                   Height="15"
-                   Margin="479,107,65,265"
+                   Height="20"
+                   Margin="481,102,63,265"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    StrokeThickness="0">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0" Color="#FF7E7E7E" />
-                    <GradientStop Offset="0.997" Color="#FF7E7E7E" />
-                    <GradientStop Offset="0.495" Color="White" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle Width="100"
-                   Height="15"
-                   Margin="4,107,540,265"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   StrokeThickness="0">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Offset="0" Color="#FF7E7E7E" />
-                    <GradientStop Offset="0.997" Color="#FF7E7E7E" />
-                    <GradientStop Offset="0.495" Color="White" />
+                    <GradientStop Offset="1" Color="#FF7E7E7E" />
+                    <GradientStop Offset="0.5" Color="White" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -186,30 +172,44 @@
                               VerticalAlignment="Top"
                               MouseLeftButtonUp="TbPrev2_MouseLeftButtonUp" />
         <Label x:Name="label"
-               Margin="20,228,0,0"
+               Margin="105,234,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="VALUE (LONG):" />
         <Label x:Name="lblValue"
-               Width="288"
-               Margin="111,228,0,0"
+               Width="145"
+               Margin="199,234,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                BorderBrush="Black"
                BorderThickness="1"
                Content="" />
         <Label x:Name="lblValueShort"
-               Width="288"
-               Margin="111,268,0,0"
+               Width="145"
+               Margin="199,274,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                BorderBrush="Black"
                BorderThickness="1"
                Content="" />
         <Label x:Name="label_Copy"
-               Margin="17,269,0,0"
+               Margin="105,275,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="VALUE (SHORT):" />
+        <Rectangle Width="100"
+                   Height="20"
+                   Margin="4,102,540,265"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   StrokeThickness="0">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FF7E7E7E" />
+                    <GradientStop Offset="1" Color="#FF7E7E7E" />
+                    <GradientStop Offset="0.5" Color="White" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </Window>

@@ -31,8 +31,8 @@ namespace ResistorCalculator
                 , Brushes.Green, Brushes.Blue, Brushes.Purple, Brushes.Gray, Brushes.White, Brushes.Gold, Brushes.Silver
             });
 
-        private readonly List<double> _rbMulipliers =
-            new List<double>(new[] {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, -1, -1, 0.1, 0.01});
+        private readonly List<int> _rbMulipliers =
+            new List<int>(new[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -1, -2});
 
         private readonly List<double> _rbTolerance =
             new List<double>(new[] {1, 2, 0.5, 0.25, 0.1, 0.05, 5, 10});
@@ -107,7 +107,7 @@ namespace ResistorCalculator
             }
         }
 
-        public double GetMultiplier()
+        public int GetMultiplier()
         {
             return _rbMulipliers[_currentMultiplier];
         }
