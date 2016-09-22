@@ -10,6 +10,7 @@ namespace ResistorCalculator
     public partial class MainWindow : Window
     {
         private const string Ohm = "\u2126";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -78,8 +79,8 @@ namespace ResistorCalculator
         private void UpdateValue()
         {
             var multiplier = Rb4.IsRbVisible() ? Rb4.GetMultiplier() : Rb3.GetMultiplier();
-  
-            if (multiplier < 0)
+
+            if (multiplier < 0 || multiplier > 7)
 
             {
                 lblValue.Content = "ERROR: INCORRECT VALUE";
@@ -87,7 +88,6 @@ namespace ResistorCalculator
             }
             else
             {
-                
                 double currentValue;
                 if (Rb4.IsRbVisible())
                 {
@@ -97,29 +97,37 @@ namespace ResistorCalculator
                 {
                     currentValue = (Rb1.GetValue()*10) + Rb2.GetValue();
                 }
-                
-                var currentValueLong = currentValue * Math.Pow(10, multiplier);
-       
-                lblValue.Content = currentValueLong.ToString("N0") + Ohm + " " + RbTolerance.GetTolerance() + "%";
-                if (currentValueLong > 1e6)
+
+                currentValue *= Math.Pow(10, multiplier);
+
+                lblValue.Content = currentValue.ToString("N0") + Ohm + " " + RbTolerance.GetTolerance() + "%";
+
+
+                lblValueShort.Content = GetShortValue(currentValue) + Ohm + " " + RbTolerance.GetTolerance() + "%";
+            }
+        }
+
+        private static string GetShortValue(double currentValue)
+        {
+            var returnValue = "";
+            if (currentValue > 1e6)
+            {
+                currentValue /= 1e6;
+                returnValue = currentValue + "M ";
+            }
+            else
+            {
+                if (currentValue > 1e3)
                 {
-                    currentValueLong /= 1e6;
-                    lblValueShort.Content = currentValueLong + "M " + Ohm + " " + RbTolerance.GetTolerance() + "%";
+                    currentValue /= 1e3;
+                    returnValue = currentValue + "K ";
                 }
                 else
                 {
-                    if (currentValueLong > 1e3)
-                    {
-                        currentValueLong /= 1e3;
-                        lblValueShort.Content = currentValueLong + "K " + Ohm + " " + RbTolerance.GetTolerance() + "%";
-                    }
-                    else
-                    {
-                        lblValueShort.Content = currentValueLong + Ohm + " " + RbTolerance.GetTolerance() + "%";
-                    }
+                    returnValue = currentValue.ToString();
                 }
-
             }
+            return returnValue;
         }
     }
 }
