@@ -48,7 +48,7 @@ namespace ResistorCalculator
         {
             InitializeComponent();
 
-            ResistorBands.Fill = Brushes.Black;
+            ResistorBands.Fill = Brushes.Brown;
             _currentMultiplier = 0;
         }
 

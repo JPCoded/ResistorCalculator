@@ -49,6 +49,10 @@ namespace ResistorCalculator
         private void TbPrev4_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Rb4.PreviousColor();
+            if (!Rb4.IsRbVisible())
+            {
+                TbPrev4.Visibility = Visibility.Hidden;
+            }
             UpdateValue();
         }
 
@@ -73,6 +77,10 @@ namespace ResistorCalculator
         private void TbNext4_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Rb4.NextColor();
+            if (Rb4.IsRbVisible())
+            {
+                TbPrev4.Visibility = Visibility.Visible;
+            }
             UpdateValue();
         }
 
