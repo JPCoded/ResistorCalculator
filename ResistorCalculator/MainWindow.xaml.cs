@@ -80,7 +80,7 @@ namespace ResistorCalculator
         {
             var multiplier = Rb4.IsRbVisible() ? Rb4.GetMultiplier() : Rb3.GetMultiplier();
 
-            if (multiplier < 0 || multiplier > 7)
+            if ( multiplier == 8 || multiplier == 9)
 
             {
                 lblValue.Content = "ERROR: INCORRECT VALUE";
@@ -103,31 +103,9 @@ namespace ResistorCalculator
                 lblValue.Content = currentValue.ToString("N0") + Ohm + " " + RbTolerance.GetTolerance() + "%";
 
 
-                lblValueShort.Content = GetShortValue(currentValue) + Ohm + " " + RbTolerance.GetTolerance() + "%";
+                lblValueShort.Content = currentValue.GetOhmage() + Ohm + " " + RbTolerance.GetTolerance() + "%";
             }
         }
 
-        private static string GetShortValue(double currentValue)
-        {
-            var returnValue = "";
-            if (currentValue > 1e6)
-            {
-                currentValue /= 1e6;
-                returnValue = currentValue + "M ";
-            }
-            else
-            {
-                if (currentValue > 1e3)
-                {
-                    currentValue /= 1e3;
-                    returnValue = currentValue + "K ";
-                }
-                else
-                {
-                    returnValue = currentValue.ToString();
-                }
-            }
-            return returnValue;
-        }
     }
 }

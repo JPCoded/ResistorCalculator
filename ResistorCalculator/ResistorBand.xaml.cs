@@ -69,6 +69,7 @@ namespace ResistorCalculator
             return ResistorBands.Visibility == Visibility.Visible;
         }
 
+        //PreviousColor and NextColor should be redone to allow skipping values
         public void PreviousColor()
         {
             if (_currentMultiplier > 0 && !AllowTolerance)
@@ -89,7 +90,7 @@ namespace ResistorCalculator
 
         public void NextColor()
         {
-            if (_currentMultiplier < 9 && IsRbVisible() && !AllowTolerance)
+            if (_currentMultiplier < 11 && IsRbVisible() && !AllowTolerance)
             {
                 ResistorBands.Fill = _rbColors[_currentMultiplier + 1];
                 _currentMultiplier += 1;

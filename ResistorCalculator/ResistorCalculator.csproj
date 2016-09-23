@@ -50,6 +50,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="ResistorBand.xaml.cs">
       <DependentUpon>ResistorBand.xaml</DependentUpon>
     </Compile>
