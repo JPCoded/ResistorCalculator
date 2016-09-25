@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,11 +16,11 @@ using System.Windows.Shapes;
 namespace ResistorCalculator
 {
     /// <summary>
-    /// Interaction logic for TriangleButton.xaml
+    /// Interaction logic for ColorBox.xaml
     /// </summary>
-    public partial class TriangleButton : UserControl
+    public partial class ColorBox : UserControl
     {
-        public TriangleButton()
+        public ColorBox()
         {
             InitializeComponent();
         }

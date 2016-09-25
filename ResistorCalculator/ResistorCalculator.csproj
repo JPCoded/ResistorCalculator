@@ -50,13 +50,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ColorBox.xaml.cs">
+      <DependentUpon>ColorBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="ResistorBand.xaml.cs">
       <DependentUpon>ResistorBand.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TriangleButton.xaml.cs">
-      <DependentUpon>TriangleButton.xaml</DependentUpon>
-    </Compile>
+    <Page Include="ColorBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,10 +74,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResistorBand.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TriangleButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
