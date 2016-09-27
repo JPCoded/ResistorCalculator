@@ -69,6 +69,11 @@ namespace ResistorCalculator
             return ResistorBands.Visibility == Visibility.Visible;
         }
 
+        public void SetColor(SolidColorBrush brushColor)
+        {
+            ResistorBands.Fill = brushColor;
+        }
+
         //PreviousColor and NextColor should be redone to allow skipping values
         public void PreviousColor()
         {
