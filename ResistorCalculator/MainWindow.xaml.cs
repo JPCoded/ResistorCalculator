@@ -17,9 +17,10 @@ namespace ResistorCalculator
             CbR1.StatusUpdated += CbR1OnStatusUpdated;
         }
 
+        private int _check = 0;
         private void CbR1OnStatusUpdated(object sender, EventArgs eventArgs)
         {
-            
+            lblValue.Content = _check++;
           Rb1.SetColor(CbR1.BrushColor);
            
         }

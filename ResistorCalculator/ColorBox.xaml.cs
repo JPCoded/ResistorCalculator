@@ -7,98 +7,94 @@ namespace ResistorCalculator
     /// <summary>
     ///     Interaction logic for ColorBox.xaml
     /// </summary>
-    public partial class ColorBox 
+    public partial class ColorBox
     {
+        public ColorBox()
+        {
+            InitializeComponent();
+            ColorChangedEvent();
+            //   BrushColor = Brushes.Brown;
+        }
+
+        public SolidColorBrush BrushColor { get; private set; }
         public event EventHandler StatusUpdated;
 
         private void ColorChangedEvent()
         {
             //Null check makes sure the main page is attached to the event
             StatusUpdated?.Invoke(new object(), new EventArgs());
-        }    
-
-        public SolidColorBrush BrushColor { get; private set; }
-
-        public ColorBox()
-        {
-            InitializeComponent();
-            ColorChangedEvent();
-         //   BrushColor = Brushes.Brown;
         }
 
         private void CrBlack_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-     
-           
-            ColorChangedEvent();
             BrushColor = Brushes.Black;
-            e.Handled = true;
+            ColorChangedEvent();
         }
 
         private void CrBrown_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Brown;
+            ColorChangedEvent();
         }
 
         private void CrRed_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Red;
+            ColorChangedEvent();
         }
 
         private void CrOrange_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Orange;
+            ColorChangedEvent();
         }
 
         private void CrYellow_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Yellow;
+            ColorChangedEvent();
         }
 
         private void CrGreen_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Green;
+            ColorChangedEvent();
         }
 
         private void CrBlue_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Blue;
+            ColorChangedEvent();
         }
 
         private void CrPurple_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Purple;
+            ColorChangedEvent();
         }
 
         private void CrGrey_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Gray;
+            ColorChangedEvent();
         }
 
         private void CrWhite_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.White;
+            ColorChangedEvent();
         }
 
         private void CrGold_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Gold;
+            ColorChangedEvent();
         }
 
         private void CrSilver_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ColorChangedEvent();
             BrushColor = Brushes.Silver;
+            ColorChangedEvent();
         }
     }
 }
