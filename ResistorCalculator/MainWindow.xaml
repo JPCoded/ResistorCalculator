@@ -138,5 +138,14 @@
                         Margin="372,171,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top" />
+        <CheckBox x:Name="chkFourthBand"
+                  Margin="98,193,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Checked="chkFourthBand_Checked"
+                  Content="4 Bands?"
+                  IsChecked="True"
+                  RenderTransformOrigin="0.5,0.5"
+                  Unchecked="chkFourthBand_Unchecked" />
     </Grid>
 </Window>

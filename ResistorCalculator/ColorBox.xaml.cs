@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -9,14 +10,32 @@ namespace ResistorCalculator
     /// </summary>
     public partial class ColorBox
     {
+        private bool _resistorBand;
+
         public ColorBox()
         {
             InitializeComponent();
-            ColorChangedEvent();
-            //   BrushColor = Brushes.Brown;
+        }
+
+        public bool ResistorBand
+        {
+            private get { return _resistorBand; }
+            set
+            {
+                _resistorBand = value;
+                //ColorChangedEvent();
+                BandChanged();
+            }
         }
 
         public SolidColorBrush BrushColor { get; private set; }
+
+        private void BandChanged()
+        {
+            CrSilver.Visibility = ResistorBand ? Visibility.Hidden : Visibility.Visible;
+            CrGold.Visibility = ResistorBand ? Visibility.Hidden : Visibility.Visible;
+        }
+
         public event EventHandler StatusUpdated;
 
         private void ColorChangedEvent()

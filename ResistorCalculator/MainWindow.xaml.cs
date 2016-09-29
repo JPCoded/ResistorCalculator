@@ -15,12 +15,40 @@ namespace ResistorCalculator
         {
             InitializeComponent();
             CbR1.StatusUpdated += CbR1OnStatusUpdated;
+            CbR2.StatusUpdated += CbR2OnStatusUpdated;
+            CbR3.StatusUpdated += CbR3OnStatusUpdated;
+            CbR4.StatusUpdated += CbR4OnStatusUpdated;
+            CbRTolerance.StatusUpdated += CbRToleranceOnStatusUpdated;
+
+            CbR1.ResistorBand = true;
+            CbR2.ResistorBand = true;
+            CbR3.ResistorBand = true;
+            
         }
 
-        private int _check = 0;
+        private void CbRToleranceOnStatusUpdated(object sender, EventArgs eventArgs)
+        {
+            RbTolerance.SetColor(CbRTolerance.BrushColor);
+        }
+
+        private void CbR4OnStatusUpdated(object sender, EventArgs eventArgs)
+        {
+            Rb4.SetColor(CbR4.BrushColor);
+        }
+
+        private void CbR3OnStatusUpdated(object sender, EventArgs eventArgs)
+        {
+            Rb3.SetColor(CbR3.BrushColor);
+        }
+
+        private void CbR2OnStatusUpdated(object sender, EventArgs eventArgs)
+        {
+            Rb2.SetColor(CbR2.BrushColor);
+        }
+
         private void CbR1OnStatusUpdated(object sender, EventArgs eventArgs)
         {
-            lblValue.Content = _check++;
+          
           Rb1.SetColor(CbR1.BrushColor);
            
         }
@@ -57,5 +85,19 @@ namespace ResistorCalculator
             }
         }
 
+        private void chkFourthBand_Unchecked(object sender, RoutedEventArgs e)
+        {
+          
+        Rb4.Visibility = Visibility.Hidden;
+            CbR4.Visibility = Visibility.Hidden;
+            CbR3.ResistorBand = false;
+        }
+
+        private void chkFourthBand_Checked(object sender, RoutedEventArgs e)
+        {
+             Rb4.Visibility = Visibility.Visible;
+            CbR4.Visibility = Visibility.Visible;
+            CbR3.ResistorBand = true;
+        }
     }
 }
