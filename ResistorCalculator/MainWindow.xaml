@@ -73,12 +73,12 @@
                             VerticalAlignment="Top"
                             AllowInvis="False"
                             AllowTolerance="True" />
-        <Label x:Name="label"
+        <Label x:Name="LblLong"
                Margin="4,10,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="VALUE (LONG):" />
-        <Label x:Name="lblValue"
+        <Label x:Name="LblValueLong"
                Width="145"
                Margin="98,10,0,0"
                HorizontalAlignment="Left"
@@ -86,7 +86,7 @@
                BorderBrush="Black"
                BorderThickness="1"
                Content="" />
-        <Label x:Name="lblValueShort"
+        <Label x:Name="LblValueShort"
                Width="145"
                Margin="357,9,0,0"
                HorizontalAlignment="Left"
@@ -94,7 +94,7 @@
                BorderBrush="Black"
                BorderThickness="1"
                Content="" />
-        <Label x:Name="label_Copy"
+        <Label x:Name="LblShort"
                Margin="263,10,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
@@ -138,7 +138,7 @@
                         Margin="372,171,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top" />
-        <CheckBox x:Name="chkFourthBand"
+        <CheckBox x:Name="ChkFourthBand"
                   Margin="98,193,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"

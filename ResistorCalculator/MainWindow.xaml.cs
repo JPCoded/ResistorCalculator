@@ -61,8 +61,8 @@ namespace ResistorCalculator
             if ( multiplier == 8 || multiplier == 9)
 
             {
-                lblValue.Content = "ERROR: INCORRECT VALUE";
-                lblValueShort.Content = "ERROR: INCORRECT VALUE";
+                LblValueLong.Content = "ERROR: INCORRECT VALUE";
+                LblValueShort.Content = "ERROR: INCORRECT VALUE";
             }
             else
             {
@@ -78,10 +78,10 @@ namespace ResistorCalculator
 
                 currentValue *= Math.Pow(10, multiplier);
 
-                lblValue.Content = currentValue.ToString("N0") + Ohm + " " + RbTolerance.GetTolerance() + "%";
+                LblValueLong.Content = currentValue.ToString("N0") + Ohm + " " + RbTolerance.GetTolerance() + "%";
 
 
-                lblValueShort.Content = currentValue.GetOhmage() + Ohm + " " + RbTolerance.GetTolerance() + "%";
+                LblValueShort.Content = currentValue.GetOhmage() + Ohm + " " + RbTolerance.GetTolerance() + "%";
             }
         }
 
