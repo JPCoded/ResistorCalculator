@@ -57,7 +57,7 @@ namespace ResistorCalculator
 
         private void UpdateValue()
         {
-            var multiplier = Rb4.IsRbVisible() ? CbR4.GetMultiplier : CbR3.GetMultiplier;
+            var multiplier = (bool)ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
 
 
             double currentValue;
