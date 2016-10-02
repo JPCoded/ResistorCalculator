@@ -142,10 +142,9 @@
                   Margin="98,193,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
-                  Checked="chkFourthBand_Checked"
+                  Click="ChkFourthBand_Click"
                   Content="4 Bands?"
                   IsChecked="True"
-                  RenderTransformOrigin="0.5,0.5"
-                  Unchecked="chkFourthBand_Unchecked" />
+                  RenderTransformOrigin="0.5,0.5" />
     </Grid>
 </Window>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Input;
 
 namespace ResistorCalculator
 {
@@ -23,81 +22,68 @@ namespace ResistorCalculator
             CbR1.ResistorBand = true;
             CbR2.ResistorBand = true;
             CbR3.ResistorBand = true;
-            
+            CbRTolerance.ToleranceBand = true;
         }
 
         private void CbRToleranceOnStatusUpdated(object sender, EventArgs eventArgs)
         {
             RbTolerance.SetColor(CbRTolerance.BrushColor);
+            UpdateValue();
         }
 
         private void CbR4OnStatusUpdated(object sender, EventArgs eventArgs)
         {
             Rb4.SetColor(CbR4.BrushColor);
+            UpdateValue();
         }
 
         private void CbR3OnStatusUpdated(object sender, EventArgs eventArgs)
         {
             Rb3.SetColor(CbR3.BrushColor);
+            UpdateValue();
         }
 
         private void CbR2OnStatusUpdated(object sender, EventArgs eventArgs)
         {
             Rb2.SetColor(CbR2.BrushColor);
+            UpdateValue();
         }
 
         private void CbR1OnStatusUpdated(object sender, EventArgs eventArgs)
         {
-          
-          Rb1.SetColor(CbR1.BrushColor);
-           
+            Rb1.SetColor(CbR1.BrushColor);
+            UpdateValue();
         }
-
 
         private void UpdateValue()
         {
-            var multiplier = Rb4.IsRbVisible() ? Rb4.GetMultiplier() : Rb3.GetMultiplier();
+            var multiplier = Rb4.IsRbVisible() ? CbR4.GetMultiplier : CbR3.GetMultiplier;
 
-            if ( multiplier == 8 || multiplier == 9)
 
+            double currentValue;
+            if (Rb4.IsRbVisible())
             {
-                LblValueLong.Content = "ERROR: INCORRECT VALUE";
-                LblValueShort.Content = "ERROR: INCORRECT VALUE";
+                currentValue = (CbR1.GetMultiplier*100) + (CbR2.GetMultiplier*10) + CbR3.GetMultiplier;
             }
             else
             {
-                double currentValue;
-                if (Rb4.IsRbVisible())
-                {
-                    currentValue = (Rb1.GetValue()*100) + (Rb2.GetValue()*10) + Rb3.GetValue();
-                }
-                else
-                {
-                    currentValue = (Rb1.GetValue()*10) + Rb2.GetValue();
-                }
-
-                currentValue *= Math.Pow(10, multiplier);
-
-                LblValueLong.Content = currentValue.ToString("N0") + Ohm + " " + RbTolerance.GetTolerance() + "%";
-
-
-                LblValueShort.Content = currentValue.GetOhmage() + Ohm + " " + RbTolerance.GetTolerance() + "%";
+                currentValue = (CbR1.GetMultiplier*10) + CbR2.GetMultiplier;
             }
+
+            currentValue *= Math.Pow(10, multiplier);
+
+            LblValueLong.Content = currentValue.ToString("N0") + Ohm + " " + CbRTolerance.GetTolerance + "%";
+
+
+            LblValueShort.Content = currentValue.GetOhmage() + Ohm + " " + CbRTolerance.GetTolerance + "%";
         }
 
-        private void chkFourthBand_Unchecked(object sender, RoutedEventArgs e)
+        private void ChkFourthBand_Click(object sender, RoutedEventArgs e)
         {
-          
-        Rb4.Visibility = Visibility.Hidden;
-            CbR4.Visibility = Visibility.Hidden;
-            CbR3.ResistorBand = false;
-        }
-
-        private void chkFourthBand_Checked(object sender, RoutedEventArgs e)
-        {
-             Rb4.Visibility = Visibility.Visible;
-            CbR4.Visibility = Visibility.Visible;
-            CbR3.ResistorBand = true;
+            Rb4.Visibility = (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
+            CbR4.Visibility = (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
+            CbR3.ResistorBand = (bool) ChkFourthBand.IsChecked;
+            UpdateValue();
         }
     }
 }
