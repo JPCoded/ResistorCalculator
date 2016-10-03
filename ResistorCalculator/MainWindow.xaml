@@ -19,10 +19,7 @@
                  StrokeThickness="0">
             <Polygon.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
                     <RotateTransform Angle="-90" />
-                    <TranslateTransform />
                 </TransformGroup>
             </Polygon.RenderTransform>
             <Polygon.Fill>

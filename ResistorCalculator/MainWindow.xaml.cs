@@ -60,15 +60,10 @@ namespace ResistorCalculator
             var multiplier = (bool)ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
 
 
-            double currentValue;
-            if (Rb4.IsRbVisible())
-            {
-                currentValue = (CbR1.GetMultiplier*100) + (CbR2.GetMultiplier*10) + CbR3.GetMultiplier;
-            }
-            else
-            {
-                currentValue = (CbR1.GetMultiplier*10) + CbR2.GetMultiplier;
-            }
+            var currentValue = Rb4.IsRbVisible()
+                ? GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier, CbR3.GetMultiplier)
+                : GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier);
+           
 
             currentValue *= Math.Pow(10, multiplier);
 
@@ -84,6 +79,16 @@ namespace ResistorCalculator
             CbR4.Visibility = (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
             CbR3.ResistorBand = (bool) ChkFourthBand.IsChecked;
             UpdateValue();
+        }
+
+        private static double GetCurrentValue(double value1, double value2, double value3)
+        {
+            return (value1*100) + (value2*10) +value3;
+        }
+
+        private static double GetCurrentValue(double value1, double value2)
+        {
+            return (value1 * 10) + value2;
         }
     }
 }
