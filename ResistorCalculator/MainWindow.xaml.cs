@@ -64,8 +64,8 @@ namespace ResistorCalculator
                 ? GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier, CbR3.GetMultiplier)
                 : GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier);
            
-            currentValue *= Math.Pow(10, multiplier);
-
+            currentValue *= (Math.Abs(multiplier) < 0) || (multiplier >=1)? Math.Pow(10, multiplier):multiplier;
+            LblDebug.Content = (Math.Abs(multiplier) < 0) || (multiplier >= 1) ? "Yes" : "No";
             LblValueLong.Content = currentValue.ToString("N0") + ohmTolerance;
             LblValueShort.Content = currentValue.GetOhmage() + ohmTolerance;
         }

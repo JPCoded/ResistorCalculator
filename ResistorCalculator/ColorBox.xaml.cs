@@ -36,7 +36,7 @@ namespace ResistorCalculator
             _colorList.Add(CrSilver);
         }
 
-        public int GetMultiplier { get; private set; }
+        public double GetMultiplier { get; private set; }
         public double GetTolerance { get; private set; }
 
         public bool ToleranceBand
@@ -181,7 +181,7 @@ namespace ResistorCalculator
         private void CrGold_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             BrushColor = Brushes.Gold;
-            GetMultiplier = -1;
+            GetMultiplier = 0.1;
             GetTolerance = 5;
             SetStrokeThickness(sender);
             ColorChangedEvent();
@@ -190,7 +190,7 @@ namespace ResistorCalculator
         private void CrSilver_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             BrushColor = Brushes.Silver;
-            GetMultiplier = -2;
+            GetMultiplier = 0.01;
             GetTolerance = 10;
             SetStrokeThickness(sender);
             ColorChangedEvent();

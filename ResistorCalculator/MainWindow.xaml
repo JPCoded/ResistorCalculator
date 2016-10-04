@@ -137,5 +137,13 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
+        <Label x:Name="LblDebug"
+               Width="103"
+               Margin="452,263,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               BorderBrush="Black"
+               BorderThickness="1"
+               Content="" />
     </Grid>
 </Window>
