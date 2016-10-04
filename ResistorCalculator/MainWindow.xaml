@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:ResistorCalculator"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MainWindow"
-        Width="652.095"
+        Width="599.095"
         Height="441.436"
         mc:Ignorable="d">
     <Grid Height="409"
@@ -90,20 +90,6 @@
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="VALUE (SHORT):" />
-        <Rectangle Width="100"
-                   Height="20"
-                   Margin="4,101,540,288"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   StrokeThickness="0">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Offset="0" Color="#FF7E7E7E" />
-                    <GradientStop Offset="1" Color="#FF7E7E7E" />
-                    <GradientStop Offset="0.5" Color="White" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
         <local:ColorBox x:Name="CbR1"
                         Width="32"
                         Margin="178,171,0,0"
@@ -137,5 +123,19 @@
                   Content="4 Bands?"
                   IsChecked="True"
                   RenderTransformOrigin="0.5,0.5" />
+        <Rectangle Width="100"
+            Height="20"
+            Margin="4,101,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            StrokeThickness="0">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FF7E7E7E" />
+                    <GradientStop Offset="1" Color="#FF7E7E7E" />
+                    <GradientStop Offset="0.5" Color="White" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </Window>
