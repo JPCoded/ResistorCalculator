@@ -36,9 +36,9 @@
                             VerticalAlignment="Top" />
         <Rectangle Width="100"
                    Height="20"
-                   Margin="481,101,63,288"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
+                   Margin="479,101,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
                    StrokeThickness="0">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -93,8 +93,8 @@
         <Rectangle Width="100"
                    Height="20"
                    Margin="4,101,540,288"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
                    StrokeThickness="0">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">

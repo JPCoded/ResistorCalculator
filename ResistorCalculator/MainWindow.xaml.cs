@@ -57,20 +57,17 @@ namespace ResistorCalculator
 
         private void UpdateValue()
         {
+            var ohmTolerance = Ohm + " " + CbRTolerance.GetTolerance + "%";
+
             var multiplier = (bool)ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
-
-
             var currentValue = Rb4.IsRbVisible()
                 ? GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier, CbR3.GetMultiplier)
                 : GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier);
            
-
             currentValue *= Math.Pow(10, multiplier);
 
-            LblValueLong.Content = currentValue.ToString("N0") + Ohm + " " + CbRTolerance.GetTolerance + "%";
-
-
-            LblValueShort.Content = currentValue.GetOhmage() + Ohm + " " + CbRTolerance.GetTolerance + "%";
+            LblValueLong.Content = currentValue.ToString("N0") + ohmTolerance;
+            LblValueShort.Content = currentValue.GetOhmage() + ohmTolerance;
         }
 
         private void ChkFourthBand_Click(object sender, RoutedEventArgs e)
