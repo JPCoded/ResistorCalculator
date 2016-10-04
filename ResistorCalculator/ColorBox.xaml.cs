@@ -89,6 +89,7 @@ namespace ResistorCalculator
             foreach (var x in _colorList)
             {
                 x.StrokeThickness = Equals(x, (Rectangle) sender) ? 2.5 : 1;
+                x.Stroke = Equals(x, (Rectangle) sender) ? Equals(x, CrBlack) ? Brushes.DarkGray : Brushes.Black: Brushes.Black;
             }
         }
 
