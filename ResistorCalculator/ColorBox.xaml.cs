@@ -19,6 +19,9 @@ namespace ResistorCalculator
         public ColorBox()
         {
             InitializeComponent();
+            GetTolerance = 1;
+            GetMultiplier = 1;
+            CrBrown.StrokeThickness = 2.5;
             _colorList.Add(CrBlack);
             _colorList.Add(CrBrown);
             _colorList.Add(CrRed);
