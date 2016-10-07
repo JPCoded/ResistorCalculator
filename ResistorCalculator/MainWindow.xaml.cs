@@ -22,7 +22,9 @@ namespace ResistorCalculator
             CbR1.ResistorBand = true;
             CbR2.ResistorBand = true;
             CbR3.ResistorBand = true;
+            CbR4.MulitiplierBand = true;
             CbRTolerance.ToleranceBand = true;
+            UpdateValue();
         }
 
         private void CbRToleranceOnStatusUpdated(object sender, EventArgs eventArgs)
@@ -59,14 +61,14 @@ namespace ResistorCalculator
         {
             var ohmTolerance = Ohm + " " + CbRTolerance.GetTolerance + "%";
 
-            var multiplier = (bool)ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
+            var multiplier = (bool) ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
             var currentValue = Rb4.IsRbVisible()
                 ? GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier, CbR3.GetMultiplier)
                 : GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier);
-           
-            currentValue *= (Math.Abs(multiplier) < 0) || (multiplier >=1)? Math.Pow(10, multiplier):multiplier;
+
+            currentValue *= (Math.Abs(multiplier) < 0) || (multiplier >= 1) ? Math.Pow(10, multiplier) : multiplier;
             LblDebug.Content = (Math.Abs(multiplier) < 0) || (multiplier >= 1) ? "Yes" : "No";
-            LblValueLong.Content = currentValue.ToString("N0") + ohmTolerance;
+            LblValueLong.Content = currentValue.ToString() + ohmTolerance;
             LblValueShort.Content = currentValue.GetOhmage() + ohmTolerance;
         }
 
@@ -74,18 +76,20 @@ namespace ResistorCalculator
         {
             Rb4.Visibility = (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
             CbR4.Visibility = (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
+            CbR4.MulitiplierBand = (bool) ChkFourthBand.IsChecked;
+            CbR3.MulitiplierBand = !(bool) ChkFourthBand.IsChecked;
             CbR3.ResistorBand = (bool) ChkFourthBand.IsChecked;
             UpdateValue();
         }
 
         private static double GetCurrentValue(double value1, double value2, double value3)
         {
-            return (value1*100) + (value2*10) +value3;
+            return (value1*100) + (value2*10) + value3;
         }
 
         private static double GetCurrentValue(double value1, double value2)
         {
-            return (value1 * 10) + value2;
+            return (value1*10) + value2;
         }
     }
 }

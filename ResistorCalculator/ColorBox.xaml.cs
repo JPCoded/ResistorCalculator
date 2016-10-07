@@ -14,6 +14,7 @@ namespace ResistorCalculator
     {
         private bool _resistorBand;
         private bool _toleranceBand;
+        private bool _multiplierBand;
         private readonly List<Rectangle> _colorList = new List<Rectangle>();
 
         public ColorBox()
@@ -38,6 +39,7 @@ namespace ResistorCalculator
 
         public double GetMultiplier { get; private set; }
         public double GetTolerance { get; private set; }
+      
 
         public bool ToleranceBand
         {
@@ -59,6 +61,16 @@ namespace ResistorCalculator
             }
         }
 
+        public bool MulitiplierBand
+        {
+            private get { return _multiplierBand; }
+            set
+            {
+                _multiplierBand = value;
+                BandChanged();
+            }
+        }
+
         public SolidColorBrush BrushColor { get; private set; }
 
         private void ToleranceChange()
@@ -72,6 +84,8 @@ namespace ResistorCalculator
 
         private void BandChanged()
         {
+            CrWhite.Visibility = MulitiplierBand ? Visibility.Hidden : Visibility.Visible;
+            CrGrey.Visibility = MulitiplierBand ? Visibility.Hidden : Visibility.Visible;
             CrSilver.Visibility = ResistorBand ? Visibility.Hidden : Visibility.Visible;
             CrGold.Visibility = ResistorBand ? Visibility.Hidden : Visibility.Visible;
         }
@@ -89,6 +103,7 @@ namespace ResistorCalculator
             foreach (var x in _colorList)
             {
                 x.StrokeThickness = Equals(x, (Rectangle) sender) ? 2.5 : 1;
+                //Checks if current selected rectangle is black, if it is, set border color to different color, else color is black
                 x.Stroke = Equals(x, (Rectangle) sender) ? Equals(x, CrBlack) ? Brushes.DarkGray : Brushes.Black: Brushes.Black;
             }
         }
