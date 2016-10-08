@@ -8,7 +8,7 @@ namespace ResistorCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string Ohm = "\u2126";
+        const string Ohm = "\u2126";
 
         public MainWindow()
         {
@@ -61,7 +61,7 @@ namespace ResistorCalculator
         {
             var ohmTolerance = Ohm + " " + CbRTolerance.GetTolerance + "%";
 
-            var multiplier = (bool) ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
+            var multiplier = ChkFourthBand.IsChecked != null && (bool) ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
             var currentValue = Rb4.IsRbVisible()
                 ? GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier, CbR3.GetMultiplier)
                 : GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier);
@@ -74,11 +74,14 @@ namespace ResistorCalculator
 
         private void ChkFourthBand_Click(object sender, RoutedEventArgs e)
         {
-            Rb4.Visibility = (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
-            CbR4.Visibility = (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
-            CbR4.MulitiplierBand = (bool) ChkFourthBand.IsChecked;
-            CbR3.MulitiplierBand = !(bool) ChkFourthBand.IsChecked;
-            CbR3.ResistorBand = (bool) ChkFourthBand.IsChecked;
+            Rb4.Visibility = ChkFourthBand.IsChecked != null && (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
+            CbR4.Visibility = ChkFourthBand.IsChecked != null && (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
+            if (ChkFourthBand.IsChecked != null)
+            {
+                CbR4.MulitiplierBand = (bool) ChkFourthBand.IsChecked;
+                CbR3.MulitiplierBand = !(bool) ChkFourthBand.IsChecked;
+                CbR3.ResistorBand = (bool) ChkFourthBand.IsChecked;
+            }
             UpdateValue();
         }
 
