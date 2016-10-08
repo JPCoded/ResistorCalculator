@@ -74,10 +74,11 @@ namespace ResistorCalculator
 
         private void ChkFourthBand_Click(object sender, RoutedEventArgs e)
         {
-            Rb4.Visibility = ChkFourthBand.IsChecked != null && (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
-            CbR4.Visibility = ChkFourthBand.IsChecked != null && (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
+           
             if (ChkFourthBand.IsChecked != null)
             {
+                Rb4.Visibility =  (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
+                CbR4.Visibility = (bool) ChkFourthBand.IsChecked ? Visibility.Visible : Visibility.Hidden;
                 CbR4.MulitiplierBand = (bool) ChkFourthBand.IsChecked;
                 CbR3.MulitiplierBand = !(bool) ChkFourthBand.IsChecked;
                 CbR3.ResistorBand = (bool) ChkFourthBand.IsChecked;
