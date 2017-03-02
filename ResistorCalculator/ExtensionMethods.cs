@@ -4,7 +4,7 @@
     {
         public static string GetOhmage(this double value)
         {
-            var returnValue = "";
+            string returnValue;
             if (value > 1e6)
             {
                 value /= 1e6;

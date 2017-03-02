@@ -54,6 +54,7 @@
       <DependentUpon>ColorBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ResistorBand.xaml.cs">
       <DependentUpon>ResistorBand.xaml</DependentUpon>
     </Compile>

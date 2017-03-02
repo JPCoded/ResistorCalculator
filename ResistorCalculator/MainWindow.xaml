@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:ResistorCalculator"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Name="mainWindow"
         Title="MainWindow"
         Width="599.095"
         Height="441.436"
@@ -16,6 +17,7 @@
                  VerticalAlignment="Top"
                  Points="0,15 15,0 115,0 130,15 130,60 115,75 115,300 130,315 130,360 115,375 15,375 0,360 0,315 15,300 15,75 0,60 0,0"
                  RenderTransformOrigin="0,0"
+                 StrokeLineJoin="Round"
                  StrokeThickness="0">
             <Polygon.RenderTransform>
                 <TransformGroup>

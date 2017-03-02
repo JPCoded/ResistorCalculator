@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -15,7 +16,7 @@ namespace ResistorCalculator
         private bool _resistorBand;
         private bool _toleranceBand;
         private bool _multiplierBand;
-        private readonly List<Rectangle> _colorList = new List<Rectangle>();
+        private readonly IEnumerable<Rectangle> _colorList;
 
         public ColorBox()
         {
@@ -23,18 +24,8 @@ namespace ResistorCalculator
             GetTolerance = 1;
             GetMultiplier = 1;
             CrBrown.StrokeThickness = 2.5;
-            _colorList.Add(CrBlack);
-            _colorList.Add(CrBrown);
-            _colorList.Add(CrRed);
-            _colorList.Add(CrOrange);
-            _colorList.Add(CrYellow);
-            _colorList.Add(CrGreen);
-            _colorList.Add(CrBlue);
-            _colorList.Add(CrPurple);
-            _colorList.Add(CrGrey);
-            _colorList.Add(CrWhite);
-            _colorList.Add(CrGold);
-            _colorList.Add(CrSilver);
+            _colorList = FindLogicalChildren<Rectangle>(colorBoxWindow).Where(rect => rect.Name.StartsWith("Cr"));
+           
         }
 
         public double GetMultiplier { get; private set; }
@@ -100,6 +91,7 @@ namespace ResistorCalculator
 
         private void SetStrokeThickness(object sender)
         {
+           
             foreach (var x in _colorList)
             {
                 x.StrokeThickness = Equals(x, (Rectangle) sender) ? 2.5 : 1;
@@ -209,6 +201,25 @@ namespace ResistorCalculator
             GetTolerance = 10;
             SetStrokeThickness(sender);
             ColorChangedEvent();
+        }
+
+        private static IEnumerable<T> FindLogicalChildren<T>(DependencyObject obj) where T : DependencyObject
+        {
+            if (obj != null)
+            {
+                if (obj is T)
+                {
+                    yield return (T)obj;
+                }
+
+                foreach (
+                    var c in
+                        LogicalTreeHelper.GetChildren(obj).OfType<DependencyObject>().SelectMany(FindLogicalChildren<T>)
+                    )
+                {
+                    yield return c;
+                }
+            }
         }
     }
 }

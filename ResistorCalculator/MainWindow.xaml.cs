@@ -24,6 +24,8 @@ namespace ResistorCalculator
             CbR3.ResistorBand = true;
             CbR4.MulitiplierBand = true;
             CbRTolerance.ToleranceBand = true;
+            //Comment out to show debug label.
+            LblDebug.Visibility = Visibility.Hidden;
             UpdateValue();
         }
 
@@ -68,7 +70,7 @@ namespace ResistorCalculator
 
             currentValue *= (Math.Abs(multiplier) < 0) || (multiplier >= 1) ? Math.Pow(10, multiplier) : multiplier;
             LblDebug.Content = (Math.Abs(multiplier) < 0) || (multiplier >= 1) ? "Yes" : "No";
-            LblValueLong.Content = currentValue.ToString() + ohmTolerance;
+            LblValueLong.Content = currentValue + ohmTolerance;
             LblValueShort.Content = currentValue.GetOhmage() + ohmTolerance;
         }
 
