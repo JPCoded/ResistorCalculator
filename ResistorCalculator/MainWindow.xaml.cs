@@ -6,10 +6,12 @@ namespace ResistorCalculator
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         const string Ohm = "\u2126";
 
+       readonly Func<double, string> GetToleranceString = (b) => string.Format("{0} {1}%",Ohm,b);
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -61,7 +63,7 @@ namespace ResistorCalculator
 
         private void UpdateValue()
         {
-            var ohmTolerance = Ohm + " " + CbRTolerance.GetTolerance + "%";
+            var ohmTolerance = GetToleranceString.Invoke(CbRTolerance.GetTolerance);
 
             var multiplier = ChkFourthBand.IsChecked != null && (bool) ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
             var currentValue = Rb4.IsRbVisible()
