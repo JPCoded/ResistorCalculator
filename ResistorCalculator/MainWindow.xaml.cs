@@ -10,7 +10,7 @@ namespace ResistorCalculator
     {
         const string Ohm = "\u2126";
 
-       readonly Func<double, string> GetToleranceString = (b) => string.Format("{0} {1}%",Ohm,b);
+       readonly Func<double, string> _getToleranceString = b => string.Format("{0} {1}%",Ohm,b);
        
         public MainWindow()
         {
@@ -63,7 +63,7 @@ namespace ResistorCalculator
 
         private void UpdateValue()
         {
-            var ohmTolerance = GetToleranceString.Invoke(CbRTolerance.GetTolerance);
+            var ohmTolerance = _getToleranceString.Invoke(CbRTolerance.GetTolerance);
 
             var multiplier = ChkFourthBand.IsChecked != null && (bool) ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
             var currentValue = Rb4.IsRbVisible()
