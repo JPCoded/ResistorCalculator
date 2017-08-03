@@ -6,7 +6,7 @@ namespace ResistorCalculator
     /// <summary>
     ///     Interaction logic for ResistorBand.xaml
     /// </summary>
-    public partial class ResistorBand
+    internal sealed partial class ResistorBand
     {
         public ResistorBand()
         {
@@ -15,10 +15,7 @@ namespace ResistorCalculator
             ResistorBands.Fill = Brushes.Brown;
         }
 
-        public bool IsRbVisible()
-        {
-            return ResistorBands.Visibility == Visibility.Visible;
-        }
+        public bool IsRbVisible() => ResistorBands.Visibility == Visibility.Visible;
 
         public void SetColor(SolidColorBrush brushColor)
         {

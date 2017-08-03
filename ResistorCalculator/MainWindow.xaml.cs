@@ -6,11 +6,11 @@ namespace ResistorCalculator
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow
+    internal sealed partial class MainWindow
     {
-        const string Ohm = "\u2126";
+        private const string Ohm = "\u2126";
 
-       readonly Func<double, string> _getToleranceString = b => string.Format("{0} {1}%",Ohm,b);
+        private readonly Func<double, string> _getToleranceString = b => $"{Ohm} {b}%";
        
         public MainWindow()
         {
@@ -65,7 +65,7 @@ namespace ResistorCalculator
         {
             var ohmTolerance = _getToleranceString.Invoke(CbRTolerance.GetTolerance);
 
-            var multiplier = ChkFourthBand.IsChecked != null && (bool) ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
+            var multiplier = (bool) ChkFourthBand.IsChecked ? CbR4.GetMultiplier : CbR3.GetMultiplier;
             var currentValue = Rb4.IsRbVisible()
                 ? GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier, CbR3.GetMultiplier)
                 : GetCurrentValue(CbR1.GetMultiplier, CbR2.GetMultiplier);
@@ -90,14 +90,8 @@ namespace ResistorCalculator
             UpdateValue();
         }
 
-        private static double GetCurrentValue(double value1, double value2, double value3)
-        {
-            return (value1*100) + (value2*10) + value3;
-        }
+        private static double GetCurrentValue(double value1, double value2, double value3) => (value1*100) + (value2*10) + value3;
 
-        private static double GetCurrentValue(double value1, double value2)
-        {
-            return (value1*10) + value2;
-        }
+        private static double GetCurrentValue(double value1, double value2) => (value1*10) + value2;
     }
 }

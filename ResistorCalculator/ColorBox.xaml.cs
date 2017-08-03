@@ -11,7 +11,7 @@ namespace ResistorCalculator
     /// <summary>
     ///     Interaction logic for ColorBox.xaml
     /// </summary>
-    public partial class ColorBox
+    internal sealed partial class ColorBox
     {
         private bool _resistorBand;
         private bool _toleranceBand;
@@ -24,7 +24,7 @@ namespace ResistorCalculator
             GetTolerance = 1;
             GetMultiplier = 1;
             CrBrown.StrokeThickness = 2.5;
-            _colorList = FindLogicalChildren<Rectangle>(colorBoxWindow).Where(rect => rect.Name.StartsWith("Cr"));
+            _colorList = FindLogicalChildren<Rectangle>(ColorBoxWindow).Where(rect => rect.Name.StartsWith("Cr"));
            
         }
 
